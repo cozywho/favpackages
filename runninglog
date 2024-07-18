@@ -2,6 +2,8 @@
 
 echo "Welcome back!"
 
+# I reset alot of machines. Need something like this to pull.
+
 # Ensure the system is up to date
 sudo dnf update -y
 
