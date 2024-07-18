@@ -1,0 +1,41 @@
+#!/bin/bash
+
+echo "Welcome back!"
+
+# Ensure the system is up to date
+sudo dnf update -y
+
+# Install git
+sudo dnf install -y git
+
+# Clone your .zshrc from GitHub
+git clone https://github.com/cozywho/cozyzsh /home/cozy/.zshrc_temp
+mv /home/cozy/.zshrc_temp/zshrc /home/cozy/.zshrc
+rm -rf /home/cozy/.zshrc_temp
+
+# Install zsh
+sudo dnf install -y zsh
+
+# Install zsh-syntax-highlighting
+# Dependencies: zsh
+sudo dnf install -y zsh-syntax-highlighting
+
+# Change default shell to zsh for user cozy
+chsh -s $(which zsh) cozy
+
+# Install zoxide
+# Dependencies: zsh, fzf
+sudo dnf install -y zoxide fzf
+
+# Install tldr
+# Dependencies: None
+sudo dnf install -y tldr
+
+# Refresh the shell
+echo "Refreshing shell..."
+exec su - cozy
+
+echo "All specified packages are installed and .zshrc is applied! Shell switched to zsh."
+
+# Add any additional packages below this line
+
