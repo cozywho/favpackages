@@ -1,0 +1,26 @@
+#!/bin/bash
+
+echo "Welcome back!"
+
+# Ensure the system is up to date
+sudo dnf update -y
+
+# Install zsh
+sudo dnf install -y zsh
+
+# Install zsh-syntax-highlighting
+# Dependencies: zsh
+sudo dnf install -y zsh-syntax-highlighting
+
+# Install zoxide
+# Dependencies: zsh, fzf
+sudo dnf install -y zoxide fzf
+
+# Install tldr
+# Dependencies: None
+sudo dnf install -y tldr
+
+echo "All specified packages are installed!"
+
+# Add any additional packages below this line
+
